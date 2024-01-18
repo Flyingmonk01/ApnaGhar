@@ -3,7 +3,7 @@ import { Container, Heading, VStack, Text, Box, Input, Textarea, Button } from '
 
 const Contact = () => {
   return (
-    <Container mt={'8'} maxW="xl" minH={'120vh'} centerContent>
+    <Container mt={'8'} maxW="xl" minH={'100vh'} centerContent>
       <Heading as="h2" mb={8} textAlign="center">
         Contact ApnaGhar
       </Heading>
