@@ -6,17 +6,17 @@ import img from '../../assets/th.jpeg';
 const About = () => {
 
     return (
-        <Container mt={'8'} minHeight={['120vh', '100vh']} minW={'90vw'} border={'2px solid red'}>
+        <Container mt={'8'} minHeight={['120vh', '100vh']} minW={'70vw'} boxShadow={'0 0 10px #0006'} borderRadius={'lg'}>
             <Heading textAlign={'center'} borderBottom={'2px solid black'} m={'auto'} w={"fit-content"} children={'About Us'} />
 
-           <Stack direction={['column', 'row']} >
-           <VStack w={['100vw', '50vw']}>
+           <Stack  direction={['column', 'row']} >
+           <VStack w={['100vw', '100vw']}>
+                <Image w={['250px', '500px']} my={['8', '6']} src={img} />
                 {/* <Text children={`${data}`} /> */}
                 <TermsAndConditions />
             </VStack>
-            <VStack  m={'auto'} justifyContent={'center'} alignItems={'center'}>
-                <Image w={'800px'} src={img} />
-            </VStack>
+      
+
            </Stack>
         </Container>
     )

@@ -3,7 +3,7 @@ import { Box, Flex, Text, Link } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <Box as="footer" mt="8" p="4" bg="#13070C" color="white" position="relative" bottom="0" width="100%">
+    <Box as="footer" mt="8" p="4" bg="#13070C" color="white" position="relative" bottom="0px" width="100%">
       <Flex justifyContent="space-between" alignItems="center">
         <Box>
           <Text fontSize="lg" fontWeight="bold">
