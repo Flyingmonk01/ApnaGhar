@@ -5,7 +5,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <HStack boxShadow={'0 0 10px #0006'} justifyContent={"space-between"}>
+        <HStack w={'100vw'} boxShadow={'0 0 10px purple'} justifyContent={"space-between"}>
             <HStack mx={'auto'}>
             <Link as={ReactRouterLink} mx={['1', '2']} to={"/property"} children={"Property"} />
                 <Link variant="brandPrimary" as={ReactRouterLink} mx={['1', '2']} to={"/buy"} children={"Buy"} />

@@ -8,12 +8,10 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 
 
-
 function App() {
 
-
-  return (
-      <Router>
+    return(
+      <Router >
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +21,7 @@ function App() {
           <Route path='/about' element={<About />} />
         </Routes>
         <Footer />
-      </Router>
+      </Router >
   )
 }
 

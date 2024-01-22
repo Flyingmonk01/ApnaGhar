@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
-        <Container minH={'70vh'} boxShadow={'0 0 10px #0006'} mt={['4', '8']} p={['2', '4']} maxW={'xl'} borderRadius={'lg'}>
+        <Container minH={'70vh'} boxShadow={'0 0 10px purple'} mt={['4', '8']} p={['2', '4']} maxW={'xl'} borderRadius={'lg'}>
             <Heading m={'auto'} w={'fit-content'} borderBottom={'2px solid black'} textAlign={'center'} p={'2'} fontSize={['xl', '2xl']}>Login</Heading>
             <VStack spacing={4} m={['2', '4']} p={['2', '4']} align="stretch">
                 <HStack>

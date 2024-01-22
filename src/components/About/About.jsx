@@ -6,7 +6,7 @@ import img from '../../assets/th.jpeg';
 const About = () => {
 
     return (
-        <Container mt={'8'} minHeight={['120vh', '100vh']} minW={'70vw'} boxShadow={'0 0 10px #0006'} borderRadius={'lg'}>
+        <Container mt={'8'} minHeight={['120vh', '100vh']} minW={'70vw'} boxShadow={'0 0 10px purple'} borderRadius={'lg'}>
             <Heading textAlign={'center'} borderBottom={'2px solid black'} m={'auto'} w={"fit-content"} children={'About Us'} />
 
            <Stack  direction={['column', 'row']} >
