@@ -5,7 +5,6 @@ import Contact from './components/Contact/Contact';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import About from './components/About/About';
-import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/about' element={<About />} />
         </Routes>
-        <Footer />
       </Router >
   )
 }
