@@ -15,9 +15,10 @@ import {
     DrawerBody,
     DrawerCloseButton,
 } from "@chakra-ui/react";
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaUser } from 'react-icons/fa';
 import img from "../../assets/logo.png";
 import { Link as ReactRouterLink } from "react-router-dom";
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -57,24 +58,25 @@ const Navbar = () => {
             ) : (
                 <>
                     {/* Rest of your JSX for larger screens */}
-                    <HStack mx={'auto'} display={{ base: isOpen ? 'none' : 'flex', md: 'flex' }}>
+                    <HStack px={'12'} mx={'auto'} display={{ base: isOpen ? 'none' : 'flex', md: 'flex' }}>
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/property"} children={"Property"} />
                         <Link variant="brandPrimary" as={ReactRouterLink} mx={['1', '2']} to={"/buy"} children={"Buy"} />
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/rent"} children={"Rent"} />
                     </HStack>
 
-                    <HStack>
+                    <HStack >
                         <Link as={ReactRouterLink} to={'/'}>
                             <Image h={['50px', '100px']} src={img} />
                         </Link>
                     </HStack>
 
-                    <HStack mx={'auto'} fontSize={'l'} px={'8'} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }}>
+                    <HStack mx={'auto'} fontSize={'l'} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }}>
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/contact"} children={"Contact"} />
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/about"} children={"About us"} />
                         <Button variant={'outline'} colorScheme="purple">
                             <Link as={ReactRouterLink} mx={['1', '2']} to={'/signup'}>Signup</Link>
                         </Button>
+                        <Link as={ReactRouterLink} mx={['1', '2']} to={"/profile"}><FaUser /></Link>
                     </HStack>
                 </>
             )}
