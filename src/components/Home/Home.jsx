@@ -23,11 +23,10 @@ const Home = () => {
 
     return (
 
-        <Box w={'100vw'} minH={'420vh'}>
         <Box maxW={'100vw'} minH={'420vh'}>
 
             <Box w={'100%'} h={'72vh'} >
-                <Input outline={'none'} color={'#000'}focusBorderColor='transparent' bgColor={'white'} textColor={'#000'} type="text" placeholder='Search your city...' pos={'absolute'} zIndex={500} w={'50vw'} mt={['2', '4']} ml={'25vw'} />
+                <Input outline={'none'} color={'#000'} focusBorderColor='transparent' bgColor={'white'} textColor={'#000'} type="text" placeholder='Search your city...' pos={'absolute'} zIndex={500} w={'50vw'} mt={['2', '4']} ml={'25vw'} />
                 <Button pos={'absolute'} zIndex={500} mt={['2', '4']} ml={'70vw'} children={'Search'} colorScheme='purple' />
                 <Carousel
                     autoPlay
@@ -44,20 +43,21 @@ const Home = () => {
                     ))}
                 </Carousel>
 
-                <Container mx={['1', '4']} my={['4', '8']}  minW={['100vw', '90vw']}>
+                <Container mx={['1', '4']} my={['4', '8']} minW={['100vw', '90vw']}>
 
                     <HStack overflowY={'hidden'} overflowX={'auto'} px={['2', '8']} mt={['2', '4']} h={'400px'} css={{
-                            '&::-webkit-scrollbar': {
-                                width: '25px',
-                                height: '7px',
-                            },
-                            '&::-webkit-scrollbar-thumb': {
-                                backgroundColor: 'grey',
-                                borderRadius: '8px',
-                            },
-                            '&::-webkit-scrollbar-track': {
-                                backgroundColor: 'transparent',
-                            }}}
+                        '&::-webkit-scrollbar': {
+                            width: '25px',
+                            height: '7px',
+                        },
+                        '&::-webkit-scrollbar-thumb': {
+                            backgroundColor: 'grey',
+                            borderRadius: '8px',
+                        },
+                        '&::-webkit-scrollbar-track': {
+                            backgroundColor: 'transparent',
+                        }
+                    }}
                     >
                         <Container maxW="full" p={4} >
                             <Heading children={'Property in your country'} pos={'absolute'} />

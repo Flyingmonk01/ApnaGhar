@@ -3,8 +3,8 @@ import { Container, Heading, VStack, Text, Box, Input, Textarea, Button } from '
 
 const Contact = () => {
   return (
-    <Container borderRadius={'lg'} boxShadow={'0 0 10px purple'} mt={'8'} maxW="xl" minH={'100vh'} centerContent>
-      <Heading mt={['4', '8']} as="h2" mb={8} textAlign="center">
+    <Container borderRadius={'lg'} boxShadow={'0 0 10px purple'} my={'8'} maxW="xl" minH={'80vh'} centerContent>
+      <Heading my={['4', '8']} as="h2" mb={8} textAlign="center">
         Contact ApnaGhar
       </Heading>
 
