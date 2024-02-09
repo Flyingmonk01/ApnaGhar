@@ -14,7 +14,7 @@ const Signup = () => {
     }
 
     return (
-        <Container minH={'80vh'} maxW={['sm', 'md', 'lg', 'xl']} p={['4', '6']} boxShadow={'0 0 10px purple'} borderRadius={'lg'}>
+        <Container my={['4', '8']} minH={'80vh'} maxW={['sm', 'md', 'lg', 'xl']} p={['4', '6']} boxShadow={'0 0 10px purple'} borderRadius={'lg'}>
             <Heading m={'auto'} w={'fit-content'} mb={['4', '6']} textAlign={'center'} borderBottom={'2px solid black'} fontSize={['xl', '2xl']}>Signup</Heading>
             <VStack spacing={4} align="stretch">
                 <Box>
