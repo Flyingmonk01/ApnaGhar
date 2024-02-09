@@ -22,7 +22,10 @@ const Home = () => {
 
 
     return (
+
+        <Box w={'100vw'} minH={'420vh'}>
         <Box maxW={'100vw'} minH={'420vh'}>
+
             <Box w={'100%'} h={'72vh'} >
                 <Input outline={'none'} color={'#000'}focusBorderColor='transparent' bgColor={'white'} textColor={'#000'} type="text" placeholder='Search your city...' pos={'absolute'} zIndex={500} w={'50vw'} mt={['2', '4']} ml={'25vw'} />
                 <Button pos={'absolute'} zIndex={500} mt={['2', '4']} ml={'70vw'} children={'Search'} colorScheme='purple' />
