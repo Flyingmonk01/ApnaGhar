@@ -26,6 +26,8 @@ const Navbar = () => {
 
     const handleToggle = () => setIsOpen(!isOpen);
 
+    const isAuthenticated = false;
+
     useEffect(() => {
         // Update the width when the window is resized
         const handleResize = () => setWidth(window.innerWidth);
@@ -38,20 +40,23 @@ const Navbar = () => {
     }, []);
 
     return (
-        <HStack w={'100vw'} boxShadow={'0 0 10px purple'} justifyContent={"space-between"}>
+        <HStack  w={'95vw'} justifyContent={"space-between"}>
             {width < 780 ? (
-                <HStack justifyContent={'space-between'}>
+                <HStack >
                     <IconButton
                         display={{ base: 'block', md: 'none' }}
                         icon={<FaBars />}
                         onClick={handleToggle}
                         variant="ghost"
                         colorScheme="purple"
-                        ml={'55'}
+                        pos={'absolute'}
+                        pl={'3'}
+                        ml={'50'}
                     />
 
                     <Link as={ReactRouterLink} to={'/'}>
-                        <Image h={['50px', '100px']} src={img} />
+
+                        <Image ml={'160'} h={['50px', '100px']} src={img} />
                     </Link>
 
                 </HStack>
@@ -73,10 +78,20 @@ const Navbar = () => {
                     <HStack mx={'auto'} fontSize={'l'} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }}>
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/contact"} children={"Contact"} />
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/about"} children={"About us"} />
-                        <Button variant={'outline'} colorScheme="purple">
-                            <Link as={ReactRouterLink} mx={['1', '2']} to={'/signup'}>Signup</Link>
-                        </Button>
-                        <Link as={ReactRouterLink} mx={['1', '2']} to={"/profile"}><FaUser /></Link>
+                        {
+                            isAuthenticated ? (
+
+                                <Link as={ReactRouterLink} to={'/profile'}> <FaUser /> </Link>
+
+                            ) : (<>
+                                <Button variant={'ghost'} colorScheme="purple">
+                                    <Link as={ReactRouterLink} to={'/login'}>Login</Link>
+                                </Button>
+                                <Button variant={'ghost'} colorScheme="purple">
+                                    <Link as={ReactRouterLink} to={'/signup'}>Signup</Link>
+                                </Button>
+                            </>)
+                        }
                     </HStack>
                 </>
             )}
@@ -89,15 +104,26 @@ const Navbar = () => {
                     <DrawerHeader>Menu</DrawerHeader>
                     <DrawerBody>
                         <VStack spacing="4">
-                        <Link onClick={handleToggle} as={ReactRouterLink} to={"/"} children={"Home"} />
+                            <Link onClick={handleToggle} as={ReactRouterLink} to={"/"} children={"Home"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/property"} children={"Property"} />
-                            <Link onClick={handleToggle}variant="brandPrimary" as={ReactRouterLink} to={"/buy"} children={"Buy"} />
+                            <Link onClick={handleToggle} variant="brandPrimary" as={ReactRouterLink} to={"/buy"} children={"Buy"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/rent"} children={"Rent"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/contact"} children={"Contact"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/about"} children={"About us"} />
-                            <Button onClick={handleToggle} variant={'outline'} colorScheme="purple">
-                                <Link as={ReactRouterLink} to={'/signup'}>Signup</Link>
-                            </Button>
+                            {
+                                isAuthenticated ? (
+
+                                    <Link onClick={handleToggle} as={ReactRouterLink} to={'/profile'}> <FaUser /> </Link>
+
+                                ) : (<>
+                                    <Button onClick={handleToggle}  variant={'ghost'} colorScheme="purple">
+                                        <Link as={ReactRouterLink} to={'/login'}>Login</Link>
+                                    </Button>
+                                    <Button onClick={handleToggle}  variant={'ghost'} colorScheme="purple">
+                                        <Link as={ReactRouterLink} to={'/signup'}>Signup</Link>
+                                    </Button>
+                                </>)
+                            }
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>

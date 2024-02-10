@@ -13,9 +13,10 @@ const Footer = () => {
 
     return (
 
-        <Flex borderTop={'1px solid purple'} minH={'30vh'} bgColor={'gray.900'} p={'8'} flexDirection={['column', 'row']} justifyContent={'center'} alignItems={'center'}>
+        <Flex borderTop={'1px solid purple'} color={'#fff'} minH={'30vh'} bgColor={'gray.900'} p={'8'} flexDirection={['column', 'row']} justifyContent={'center'} alignItems={'center'}>
             <Box mx={'6'} maxW={'20vw'}>
-                All Rights are reserved
+                <Heading fontWeight={'400'} children={'Flying_Monk'}/>
+                <Text>All Rights Reserved</Text>
             </Box>
             <Box mx={'6'} flex="1">
                 <Image src={img} alt="Logo" maxW={{ base: "100px", md: "120px" }} mb={4} />
@@ -27,11 +28,13 @@ const Footer = () => {
                 <HStack mt={2}>
                     <Link to={'https://www.instagram.com'}><FaInstagram size={'50'} /></Link>
                     <Link to={'https://www.youtube.com'}><FaYoutube size={'50'} /></Link>
-                    <FaLinkedin size={'50'} />
-                    <FaTwitter size={'50'} />
+                    <Link to={'https://www.linkedin.com/in/pronita-barman/'}><FaLinkedin size={'50'} /></Link>
+                    <Link to={'https://www.twitter.com/Flying_Monk_'}><FaTwitter size={'50'} /></Link>
+                    
+                    
                 </HStack>
             </Box>
-            <Button onClick={scrollToTop}><FaArrowAltCircleUp fontSize={'25px'} /></Button>
+            <Button pos={'absolute'} bottom={'2'} right={'2'} background={'transparent'} color={'#fff'} onClick={scrollToTop}><FaArrowAltCircleUp fontSize={'25px'} /></Button>
         </Flex>
     )
 }

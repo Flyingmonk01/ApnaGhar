@@ -23,9 +23,9 @@ const Home = () => {
 
     return (
 
-        <Box maxW={'100vw'} minH={'420vh'}>
+        // <Container maxW={'100vw'} minH={'420vh'}>
 
-            <Box w={'100%'} h={'72vh'} >
+            <Box w={'100%'} minH={'100vh'} >
                 <Input outline={'none'} color={'#000'} focusBorderColor='transparent' bgColor={'white'} textColor={'#000'} type="text" placeholder='Search your city...' pos={'absolute'} zIndex={500} w={'50vw'} mt={['2', '4']} ml={'25vw'} />
                 <Button pos={'absolute'} zIndex={500} mt={['2', '4']} ml={'70vw'} children={'Search'} colorScheme='purple' />
                 <Carousel
@@ -43,7 +43,7 @@ const Home = () => {
                     ))}
                 </Carousel>
 
-                <Container mx={['1', '4']} my={['4', '8']} minW={['100vw', '90vw']}>
+                <Container mx={['1', '4']} my={['4', '8']} minW={['100vw', '95vw']}>
 
                     <HStack overflowY={'hidden'} overflowX={'auto'} px={['2', '8']} mt={['2', '4']} h={'400px'} css={{
                         '&::-webkit-scrollbar': {
@@ -122,10 +122,10 @@ const Home = () => {
 
                 <hr />
 
-                <Container borderRadius={'xl'} color={'#000'} bgColor={'purple.100'} boxShadow={'0 0 10px purple'} minW={'60vw'} overflowY={'hidden'} overflowX={'auto'} px={['4', '8']} mt={['8', '12']}
+                <Container minH={'50vh'} borderRadius={'xl'} color={'#000'} bgColor={'purple.100'} boxShadow={'0 0 10px purple'} minW={'60vw'} overflowY={'hidden'} overflowX={'auto'} px={['4', '8']} mt={['8', '12']}
 
                 >
-                    <Container minH={'80vh'} W={'60vw'} p={4}>
+                    <Container  W={'60vw'} p={4}>
                         <Box m={'8'}><Heading children={'Testimonials'} textAlign={'center'} /></Box>
                         <Carousel autoPlay infiniteLoop showIndicators={false} showStatus={false}>
                             {testimonials.map((testimonial, index) => (
@@ -145,7 +145,7 @@ const Home = () => {
                     </Container>
                 </Container>
 
-                <Container borderRadius={'xl'} bgColor={'yellow.100'} color={'#000'} boxShadow={'0 0 10px purple'} minH={'80vh'} minW={'60vw'} my={['6', '20']} p={['6', '12']} >
+                <Container borderRadius={'xl'} bgColor={'yellow.100'} color={'#000'} boxShadow={'0 0 10px purple'} minH={'50vh'} minW={'60vw'} my={['6', '20']} p={['6', '12']} >
                     <Heading textAlign={'center'}>Our Vision</Heading>
                     <Text>
                         The application of blockchain technology in the real estate industry has the potential to bring about significant changes and improvements. Here's a vision of how blockchain could impact the real estate sector:
@@ -170,7 +170,6 @@ const Home = () => {
                     </Text>
                 </Container>
             </Box>
-        </Box >
     );
 };
 

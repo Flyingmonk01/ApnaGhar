@@ -27,7 +27,7 @@ const Payment = () => {
 
     return (
         <Container my={'8'} minH={'100vh'} maxW={['sm', 'md', 'lg', 'xl']} p={['4', '6']} boxShadow={'0 0 10px purple'} borderRadius={'lg'}>
-            <Heading m={'auto'} w={'fit-content'} mb={['4', '6']} textAlign={'center'} borderWidth={'2px'} p={3} borderRadius={'10px'} fontSize={['xl', '2xl']}>Select payment method</Heading>
+            <Heading m={'auto'} w={'fit-content'} mb={['4', '6']} textAlign={'center'} fontSize={['xl', '2xl']}>Select payment method</Heading>
             <VStack>
                 <Box>
                     <HStack justifyContent={'center'} wrap={'wrap'} spacing={4}>
@@ -47,7 +47,7 @@ const Payment = () => {
 
 const CreditCard = () => {
     return (
-        <Box my={'8'} borderWidth="1px" borderRadius="lg" p="4" boxShadow="md">
+        <Box w={'fit-content'} my={'8'} borderWidth="1px" borderRadius="lg" p="4" boxShadow="md">
             <Heading size="md" mb="4">Enter Credit Card Details</Heading>
             <FormControl mb="4">
                 <FormLabel>Cardholder Name</FormLabel>
@@ -74,7 +74,7 @@ const CreditCard = () => {
 
 const NetBanking = () => {
     return (
-        <Box my={'8'} borderWidth="1px" borderRadius="lg" p="4" boxShadow="md">
+        <Box w={'90%'} my={'8'} borderWidth="1px" borderRadius="lg" p="4" boxShadow="md">
             <Heading size="md" mb="4">Enter Net Banking Details</Heading>
             <FormControl mb="4">
                 <FormLabel>Bank Name</FormLabel>
@@ -99,7 +99,7 @@ const NetBanking = () => {
 }
 const Upi = () => {
     return (
-        <Box my={'8'} borderWidth="1px" borderRadius="lg" p="4" boxShadow="md">
+        <Box w={'90%'} my={'8'} borderWidth="1px" borderRadius="lg" p="4" boxShadow="md">
             <Heading size="md" mb="4">Enter UPI Details</Heading>
             <FormControl mb="4">
                 <FormLabel>UPI ID</FormLabel>
