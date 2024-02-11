@@ -10,6 +10,7 @@ import Payment from './components/Payment/Payment';
 import Rent from './components/Rent/Rent';
 import Buy from './components/Buy/Buy';
 import Footer from './components/Footer/Footer';
+import Users from './components/Profile/Profile';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
           <Route path='/Payment' element={<Payment/>}/>
           <Route path='/rent' element={<Rent />} />
           <Route path='/buy' element={<Buy />} />
-          {/* <Route path='/profile' element={<Users />} /> */}
+          <Route path='/profile/:id' element={<Users />} />
         </Routes>
         <Footer/>
       </Router >
