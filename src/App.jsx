@@ -6,12 +6,6 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import About from './components/About/About';
 import Property from './components/Property/Property';
-import Payment from './components/Payment/Payment';
-import Rent from './components/Rent/Rent';
-import Buy from './components/Buy/Buy';
-import Footer from './components/Footer/Footer';
-import Users from './components/User/User';
-import People from './components/People/People';
 
 
 function App() {
@@ -29,8 +23,6 @@ function App() {
           <Route path='/Payment' element={<Payment/>}/>
           <Route path='/rent' element={<Rent />} />
           <Route path='/buy' element={<Buy />} />
-          <Route path='/user/:id' element={<Users />} />
-          <Route path='/people' element={<People />} />
         </Routes>
         <Footer/>
       </Router >
