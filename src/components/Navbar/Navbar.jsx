@@ -26,7 +26,7 @@ const Navbar = () => {
 
     const handleToggle = () => setIsOpen(!isOpen);
 
-    const isAuthenticated = true;
+    const isAuthenticated = false;
 
     useEffect(() => {
         // Update the width when the window is resized
