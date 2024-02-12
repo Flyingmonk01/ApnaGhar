@@ -40,7 +40,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <HStack  w={'95vw'} justifyContent={"space-between"}>
+        <HStack w={'95vw'} justifyContent={"space-between"}>
             {width < 780 ? (
                 <HStack >
                     <IconButton
@@ -80,8 +80,11 @@ const Navbar = () => {
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/about"} children={"About us"} />
                         {
                             isAuthenticated ? (
-
-                                <Link as={ReactRouterLink} to={'/profile'}> <FaUser /> </Link>
+                                <>
+                                    <Link as={ReactRouterLink} to={'/people'}> People </Link>
+                                    <Link as={ReactRouterLink} to={'/user/:id'}>
+                                        <IconButton aria-label="User" _hover={{ fontSize: "lg" }}><FaUser /></IconButton> </Link>
+                                </> // Have to add the function here
 
                             ) : (<>
                                 <Button variant={'ghost'} colorScheme="purple">
@@ -113,13 +116,16 @@ const Navbar = () => {
                             {
                                 isAuthenticated ? (
 
-                                    <Link onClick={handleToggle} as={ReactRouterLink} to={'/profile'}> <FaUser /> </Link>
+                                    <>
+                                        <Link onClick={handleToggle} as={ReactRouterLink} to={'/people'}> People </Link>
+                                        <Link onClick={handleToggle} as={ReactRouterLink} to={'/user/:id'}> <FaUser /> </Link>
+                                    </>
 
                                 ) : (<>
-                                    <Button onClick={handleToggle}  variant={'ghost'} colorScheme="purple">
+                                    <Button onClick={handleToggle} variant={'ghost'} colorScheme="purple">
                                         <Link as={ReactRouterLink} to={'/login'}>Login</Link>
                                     </Button>
-                                    <Button onClick={handleToggle}  variant={'ghost'} colorScheme="purple">
+                                    <Button onClick={handleToggle} variant={'ghost'} colorScheme="purple">
                                         <Link as={ReactRouterLink} to={'/signup'}>Signup</Link>
                                     </Button>
                                 </>)
