@@ -1,4 +1,5 @@
-import { Table, Thead, Tbody, Tr, Th, Td, Avatar, Container, HStack, Heading, Text, VStack } from "@chakra-ui/react"
+import { Table, Thead, Tbody, Tr, Th, Td, Avatar, Container, HStack, Heading, Text, VStack, Button, Box } from "@chakra-ui/react"
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 
@@ -60,18 +61,20 @@ const Users = () => {
         }
     ];
 
-
     return (
         <Container minW={'80vw'} minH={'100vh'} my={['4', '8']}>
             <HStack>
                 <VStack w={'60%'} m={'8'} align={'flex-start'}>
-                    <Heading >{user_name}</Heading>
+                    <Heading>{user_name}</Heading>
                     <Text>{user.age}</Text>
                     <Text>{user.place}</Text>
+                    <Button colorScheme="green">
+                        Chat
+                    </Button>
                 </VStack>
-               <VStack w={'30%'}>
-               <Avatar size={['lg', '2xl']} />
-               </VStack>
+                <VStack w={'30%'}>
+                    <Avatar size={['lg', '2xl']} />
+                </VStack>
             </HStack>
             <VStack align={'flex-start'} m={['0', '8']}>
                 <Heading my={'8'} fontSize={'xl'} textAlign={'center'}>
@@ -88,7 +91,7 @@ const Users = () => {
                     </Thead>
                     <Tbody>
                         {transactions.length > 0 && transactions.map((tran) => (
-                            <Tr  key={tran.id}>
+                            <Tr key={tran.id}>
                                 <Td fontSize={['x-small', 'md']}>{tran.propertyId.toUpperCase()}</Td>
                                 <Td fontSize={['x-small', 'md']}>{tran.seller.toUpperCase()}</Td>
                                 <Td fontSize={['x-small', 'md']}>{tran.amount}</Td>
@@ -101,5 +104,6 @@ const Users = () => {
         </Container>
     )
 }
+
 
 export default Users;

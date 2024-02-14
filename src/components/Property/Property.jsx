@@ -1,65 +1,63 @@
-import { Flex, VStack } from "@chakra-ui/react";
-import { Box, Container, HStack, Image, Heading, Stack, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-
-
+import { Box, Container, Flex, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react"
+import { Carousel } from "react-responsive-carousel";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Brands from "../../assets/promotion";
 
 
 const Property = () => {
 
-
-    const url = "https://dummyjson.com/products";
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const response = await fetch(url);
-                const {products} = await response.json();
-                setData(products);
-                console.log(typeof products);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        loadData();
-    }, []);
-
-    console.log(data);
-
+    const property = {
+        "id": 3,
+        "address": "789 Oak St",
+        "city": "Testville",
+        "state": "Teststate",
+        "zipcode": "98765",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "area": 1200,
+        "description": "A charming starter home perfect for a small family.",
+        "image": "https://example.com/house3.jpg"
+    }
 
     return (
-        <Container minW="full" p={6} >
+        <Container minH={'100vh'} maxW={['100vw', '60vw']} my={'8'}>
+            <Heading fontWeight={'300'} textAlign={"center"}>Property Details</Heading>
+            <Carousel autoPlay infiniteLoop showIndicators={true} showArrows={false} showStatus={false}>
+                {Brands.map((brand, index) => (
+                    <Box key={index} w="959" m={['0', '8']} h="50vh" borderRadius="md" overflow="hidden">
+                        <Image src={brand.image} alt={brand.name} h="100%" />
+                    </Box>
+                ))}
+            </Carousel>
 
-            <Stack w={'100%'} h={'100%'} >
-                <Flex wrap={'wrap'} gap={'7'} justifyContent={'space-around'}>
-                    {
-                        data.map((ele) => (
-                            <Boxes key={ele.id} source={ele.thumbnail} text={ele.title} />
-                        ))
-                    }
-                </Flex>
-            </Stack>
+            <Flex flexDirection={['column', 'row']}>
+                <VStack border={'1px solid red'} p={4} borderRadius={8} alignItems="flex-start">
+                    <Text fontWeight="bold">Address:</Text>
+                    <Text>{property.address}</Text>
+                    <Text fontWeight="bold">City:</Text>
+                    <Text>{property.city}</Text>
+                    <Text fontWeight="bold">State:</Text>
+                    <Text>{property.state}</Text>
+                    <Text fontWeight="bold">Zipcode:</Text>
+                    <Text>{property.zipcode}</Text>
+                    <Text fontWeight="bold">Price:</Text>
+                    <Text>{property.price}</Text>
+                    <Text fontWeight="bold">Bedrooms:</Text>
+                    <Text>{property.bedrooms}</Text>
+                    <Text fontWeight="bold">Bathrooms:</Text>
+                    <Text>{property.bathrooms}</Text>
+                    <Text fontWeight="bold">Area:</Text>
+                    <Text>{property.area}</Text>
+                    <Text fontWeight="bold">Description:</Text>
+                    <Text>{property.description}</Text>
+                </VStack>
+                <VStack w={'100%'} border={'1px solid red'} p={4} borderRadius={8}>
+                    <Text fontWeight="bold">Map</Text>
+                    {/* Place your map component here */}
+                </VStack>
+            </Flex>
         </Container>
-    );
-}
-
-
-const Boxes = ({ source, text }) => {
-    return (
-        <Box borderWidth={'1px'} borderColor={'black'} maxW={'260px'}>
-            <Box borderWidth={'1px'} borderColor={'black'}>
-                <Image borderRadius='xl' objectFit={'cover'} w={'260px'} h={'260px'} src={source} />
-            </Box>
-            <HStack mt={'4'} spacing={'6'} borderRadius={'5'} borderWidth={'1px'} borderColor={'black'} >
-                <Box ml={'3'}>
-                    {text}
-                </Box>
-                {/* <Box>Location</Box>
-                        <Text>Price</Text> */}
-
-            </HStack>
-        </Box>
     )
 }
 

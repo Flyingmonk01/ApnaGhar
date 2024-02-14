@@ -5,13 +5,14 @@ import Contact from './components/Contact/Contact';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import About from './components/About/About';
-import Property from './components/Property/Property';
+import Properties from './components/Properties/Properties';
 import Payment from './components/Payment/Payment';
 import Rent from './components/Rent/Rent';
 import Buy from './components/Buy/Buy';
 import Footer from './components/Footer/Footer';
 import Users from './components/User/User';
 import People from './components/People/People';
+import Property from './components/Property/Property';
 
 
 function App() {
@@ -25,8 +26,9 @@ function App() {
           <Route path='/signup' element = {<Signup />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/about' element={<About />} />
-          <Route path='/Property' element={<Property/>} />
-          <Route path='/Payment' element={<Payment/>}/>
+          <Route path='/properties' element={<Properties/>} />
+          <Route path='/property/:id' element={<Property/>} />
+          <Route path='/payment' element={<Payment/>}/>
           <Route path='/rent' element={<Rent />} />
           <Route path='/buy' element={<Buy />} />
           <Route path='/user/:id' element={<Users />} />
