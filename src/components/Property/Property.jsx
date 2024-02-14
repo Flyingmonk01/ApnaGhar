@@ -52,28 +52,28 @@ const Property = () => {
                 ))}
             </Carousel>
 
-            <Flex flexDirection={['column', 'row']} mx={'12'}>
+            <Flex color={"white"} flexDirection={['column', 'row']} mx={'12'}>
                 <VStack p={8} bgColor={'green.900'} px={4} borderRadius={8} alignItems="flex-start">
                     <Text fontWeight="bold">Address:</Text>
-                    <Text>{property.address}</Text>
+                    <Text fontFamily={'italic'}>{property.address}</Text>
                     <Text fontWeight="bold">City:</Text>
-                    <Text>{property.city}</Text>
+                    <Text fontFamily={'italic'}>{property.city}</Text>
                     <Text fontWeight="bold">State:</Text>
-                    <Text>{property.state}</Text>
+                    <Text fontFamily={'italic'}>{property.state}</Text>
                     <Text fontWeight="bold">Zipcode:</Text>
-                    <Text>{property.zipcode}</Text>
+                    <Text fontFamily={'italic'}>{property.zipcode}</Text>
                     <Text fontWeight="bold">Price:</Text>
-                    <Text>{property.price}</Text>
+                    <Text fontFamily={'italic'}>{property.price}</Text>
                     <Text fontWeight="bold">Bedrooms:</Text>
-                    <Text>{property.bedrooms}</Text>
+                    <Text fontFamily={'italic'}>{property.bedrooms}</Text>
                     <Text fontWeight="bold">Bathrooms:</Text>
-                    <Text>{property.bathrooms}</Text>
+                    <Text fontFamily={'italic'}>{property.bathrooms}</Text>
                     <Text fontWeight="bold">Area:</Text>
-                    <Text>{property.area}</Text>
+                    <Text fontFamily={'italic'}>{property.area}</Text>
                     <Text fontWeight="bold">Description:</Text>
-                    <Text>{property.description}</Text>
+                    <Text fontFamily={'italic'}>{property.description}</Text>
                 </VStack>
-                <VStack h={'100vh'} w={'100%'} p={4} borderRadius={8}>
+                <VStack mx={['0', '4']} bgColor={'green.900'} border='2px solid black' h={'100vh'} w={'100%'} p={4} borderRadius={8}>
                     {/* <Text fontWeight="bold">Location</Text> */}
                     <MapContainer style={{ width: "100%", height: "100%" }} center={[28.644800, 77.216721]} zoom={13}>
                         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

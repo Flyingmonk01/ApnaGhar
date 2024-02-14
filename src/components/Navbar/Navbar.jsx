@@ -64,7 +64,7 @@ const Navbar = () => {
                 <>
                     {/* Rest of your JSX for larger screens */}
                     <HStack px={'12'} mx={'auto'} display={{ base: isOpen ? 'none' : 'flex', md: 'flex' }}>
-                        <Link as={ReactRouterLink} mx={['1', '2']} to={"/property"} children={"Property"} />
+                        <Link as={ReactRouterLink} mx={['1', '2']} to={"/properties"} children={"Properties"} />
                         <Link variant="brandPrimary" as={ReactRouterLink} mx={['1', '2']} to={"/buy"} children={"Buy"} />
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/rent"} children={"Rent"} />
                     </HStack>
@@ -108,7 +108,7 @@ const Navbar = () => {
                     <DrawerBody>
                         <VStack spacing="4">
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/"} children={"Home"} />
-                            <Link onClick={handleToggle} as={ReactRouterLink} to={"/property"} children={"Property"} />
+                            <Link onClick={handleToggle} as={ReactRouterLink} to={"/properties"} children={"Properties"} />
                             <Link onClick={handleToggle} variant="brandPrimary" as={ReactRouterLink} to={"/buy"} children={"Buy"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/rent"} children={"Rent"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/contact"} children={"Contact"} />
