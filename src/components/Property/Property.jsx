@@ -77,7 +77,7 @@ const Property = () => {
                     {/* <Text fontWeight="bold">Location</Text> */}
                     <MapContainer style={{ width: "100%", height: "100%" }} center={[28.644800, 77.216721]} zoom={13}>
                         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                        <Marker position={[26.83928000, 80.92313000]} ref={markerRef} />
+                        <Marker position={[26.83928000, 80.92313000]} color='red' ref={markerRef} />
                     </MapContainer>
                 </VStack>
             </Flex>
