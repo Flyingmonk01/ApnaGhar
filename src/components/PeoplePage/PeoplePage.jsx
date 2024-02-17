@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 
-const Users = () => {
+const PeoplePage = () => {
 
     const user_name = useParams().id;
     // console.log(user_name);
@@ -69,7 +69,7 @@ const Users = () => {
                     <Text>{user.age}</Text>
                     <Text>{user.place}</Text>
                     <Button colorScheme="green">
-                        Create Property
+                        Chat
                     </Button>
                 </VStack>
                 <VStack w={'30%'}>
@@ -106,4 +106,4 @@ const Users = () => {
 }
 
 
-export default Users;
+export default PeoplePage;

@@ -2,7 +2,7 @@ import { Avatar, Box, Container, HStack, Heading, Text, VStack } from "@chakra-u
 import { Link } from "react-router-dom";
 
 
-const People = () => {
+const Peoples = () => {
 
     const dummyPersonsData = [
         { name: "John Doe", age: 35, occupation: "Engineer", budget: 150000 },
@@ -47,4 +47,4 @@ const People = () => {
     )
 }
 
-export default People;
+export default Peoples;

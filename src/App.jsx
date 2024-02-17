@@ -11,8 +11,10 @@ import Rent from './components/Rent/Rent';
 import Buy from './components/Buy/Buy';
 import Footer from './components/Footer/Footer';
 import Users from './components/User/User';
-import People from './components/People/People';
+import Peoples from './components/Peoples/Peoples';
 import Property from './components/Property/Property';
+import PeoplePage from './components/PeoplePage/PeoplePage';
+import NotFound from './components/NotFound/NotFound';
 
 
 function App() {
@@ -21,7 +23,8 @@ function App() {
       <Router >
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path='*' element={<NotFound />} />
+          <Route path='/' element={<Home />} />
           <Route path='/login' element = {<Login />} />
           <Route path='/signup' element = {<Signup />} />
           <Route path='/contact' element={<Contact />} />
@@ -32,7 +35,8 @@ function App() {
           <Route path='/rent' element={<Rent />} />
           <Route path='/buy' element={<Buy />} />
           <Route path='/user/:id' element={<Users />} />
-          <Route path='/people' element={<People />} />
+          <Route path='/peoples' element={<Peoples />} />
+          <Route path='/people/:id' element={<PeoplePage />} />
         </Routes>
         <Footer/>
       </Router >

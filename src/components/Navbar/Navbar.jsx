@@ -54,9 +54,8 @@ const Navbar = () => {
                         ml={'50'}
                     />
 
-                    <Link as={ReactRouterLink} to={'/'}>
-
-                        <Image ml={'160'} h={['50px', '100px']} src={img} />
+                    <Link ml={'100'} as={ReactRouterLink} to={'/'}>
+                        <Image h={['50px', '100px']} src={img} />
                     </Link>
 
                 </HStack>
