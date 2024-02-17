@@ -2,7 +2,7 @@ import { Avatar, Box, Container, HStack, Heading, Text, VStack } from "@chakra-u
 import { Link } from "react-router-dom";
 
 
-const Peoples = () => {
+const People = () => {
 
     const dummyPersonsData = [
         { name: "John Doe", age: 35, occupation: "Engineer", budget: 150000 },
@@ -35,7 +35,7 @@ const Peoples = () => {
                     <VStack key={idx} alignItems={'space-between'}>
                     <HStack justifyContent={'space-between'}>
                         <Heading fontSize={'xl'}>
-                            <Link to={`/user/${person.name}`}>{person.name}</Link>
+                            <Link to={`/people/${person.name}`}>{person.name}</Link>
                         </Heading>
                         <Avatar mt={'2'} mr={'8'}/>
                     </HStack>
@@ -47,4 +47,4 @@ const Peoples = () => {
     )
 }
 
-export default Peoples;
+export default People;

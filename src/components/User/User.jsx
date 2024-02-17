@@ -1,17 +1,49 @@
-import { Table, Thead, Tbody, Tr, Th, Td, Avatar, Container, HStack, Heading, Text, VStack, Button, Box } from "@chakra-ui/react"
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td,
+    Avatar,
+    Container,
+    HStack,
+    Heading,
+    Text,
+    VStack,
+    Button,
+    Box,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    FormControl,
+    FormLabel,
+    Input,
+} from "@chakra-ui/react";
 
 const Users = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleCreateProperty = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     const user_name = useParams().id;
     // console.log(user_name);
     const user = {
-        name: 'Sameer rai',
-        age: '20',
-        place: 'Lucknow'
-    }
+        name: "Sameer rai",
+        age: "20",
+        place: "Lucknow",
+    };
 
     const transactions = [
         {
@@ -61,23 +93,24 @@ const Users = () => {
         }
     ];
 
+
     return (
-        <Container minW={'80vw'} minH={'100vh'} my={['4', '8']}>
+        <Container minW={"80vw"} minH={"100vh"} my={["4", "8"]}>
             <HStack>
-                <VStack w={'60%'} m={'8'} align={'flex-start'}>
+                <VStack w={"60%"} m={"8"} align={"flex-start"}>
                     <Heading>{user_name}</Heading>
                     <Text>{user.age}</Text>
                     <Text>{user.place}</Text>
-                    <Button colorScheme="green">
+                    <Button onClick={handleCreateProperty} colorScheme="green">
                         Create Property
                     </Button>
                 </VStack>
-                <VStack w={'30%'}>
-                    <Avatar size={['lg', '2xl']} />
+                <VStack w={"30%"}>
+                    <Avatar size={["lg", "2xl"]} />
                 </VStack>
             </HStack>
-            <VStack align={'flex-start'} m={['0', '8']}>
-                <Heading my={'8'} fontSize={'xl'} textAlign={'center'}>
+            <VStack align={"flex-start"} m={["0", "8"]}>
+                <Heading my={"8"} fontSize={"xl"} textAlign={"center"}>
                     History
                 </Heading>
                 <Table variant="striped" size={['xsm', "md"]}>
@@ -101,9 +134,29 @@ const Users = () => {
                     </Tbody>
                 </Table>
             </VStack>
-        </Container>
-    )
-}
 
+            {/* Modal for Create Property */}
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Create Property</ModalHeader>
+                    <ModalBody>
+                        <FormControl>
+                            <FormLabel>Property Name</FormLabel>
+                            <Input placeholder="Enter property name" />
+                        </FormControl>
+                        {/* Add more form fields as needed */}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme="purple" mr={3}>
+                            Save
+                        </Button>
+                        <Button onClick={handleCloseModal}>Cancel</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </Container>
+    );
+};
 
 export default Users;
