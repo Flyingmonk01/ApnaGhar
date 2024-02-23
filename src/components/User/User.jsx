@@ -14,7 +14,6 @@ import {
     Text,
     VStack,
     Button,
-    Box,
     Modal,
     ModalOverlay,
     ModalContent,
@@ -24,10 +23,30 @@ import {
     FormControl,
     FormLabel,
     Input,
+    Textarea,
 } from "@chakra-ui/react";
 
 const Users = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    
+    const [details, setDetails] = useState({
+        name: '',
+        address: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        price: '',
+        bedrooms: '',
+        bathrooms: '',
+        area: '',
+        description: '',
+        pictures: [],
+    })
+
+    const handleFileChange = (e) => {
+        const fileList = e.target.files;
+        console.log(fileList);
+    }
 
     const handleCreateProperty = () => {
         setIsModalOpen(true);
@@ -93,6 +112,27 @@ const Users = () => {
         }
     ];
 
+    const handleSaveButton = (e) =>{
+        e.preventDefault();
+        
+        setDetails({
+            name: '',
+            address: '',
+            city: '',
+            state: '',
+            zipcode: '',
+            price: '',
+            bedrooms: '',
+            bathrooms: '',
+            area: '',
+            description: '',
+            pictures: [],
+        })
+        // console.log(details);
+
+        handleCloseModal();
+    }
+
 
     return (
         <Container minW={"80vw"} minH={"100vh"} my={["4", "8"]}>
@@ -136,19 +176,40 @@ const Users = () => {
             </VStack>
 
             {/* Modal for Create Property */}
-            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-                <ModalOverlay />
+            <Modal size={['lg', '2xl']} isOpen={isModalOpen} onClose={handleCloseModal} >
+                <ModalOverlay backdropFilter={'blur(5px)'} />
                 <ModalContent>
                     <ModalHeader>Create Property</ModalHeader>
                     <ModalBody>
                         <FormControl>
-                            <FormLabel>Property Name</FormLabel>
-                            <Input placeholder="Enter property name" />
+                            <FormLabel>Property Holder Name</FormLabel>
+                            <Input value={details.name} onChange={(e)=> setDetails({...details, name: e.target.value})} placeholder="Enter property name" />
+                            <FormLabel>Property Address</FormLabel>
+                            <Input value={details.address} onChange={(e)=> setDetails({...details, address: e.target.value})} placeholder="Enter property Address" />
+                            <FormLabel>Property City</FormLabel>
+                            <Input value={details.city} onChange={(e)=> setDetails({...details, city: e.target.value})} placeholder="Enter property City" />
+                            <FormLabel>Property State</FormLabel>
+                            <Input value={details.state} onChange={(e)=> setDetails({...details, state: e.target.value})} placeholder="Enter property State" />
+                            <FormLabel>Property Zipcode</FormLabel>
+                            <Input value={details.zipcode} onChange={(e)=> setDetails({...details, zipcode: e.target.value})} placeholder="Enter property Zipcode" />
+                            <FormLabel>Property Price</FormLabel>
+                            <Input value={details.price} onChange={(e)=> setDetails({...details, price: e.target.value})} type="number" placeholder="Enter property Price" />
+                            <FormLabel>Property Bedrooms</FormLabel>
+                            <Input value={details.bedrooms} onChange={(e)=> setDetails({...details, bedrooms: e.target.value})} type="number" placeholder="Enter property Bedrooms" />
+                            <FormLabel>Property Bathrooms</FormLabel>
+                            <Input value={details.bathrooms} onChange={(e)=> setDetails({...details, bathrooms: e.target.value})} type="number" placeholder="Enter property Bathrooms" />
+                            <FormLabel>Property Area</FormLabel>
+                            <Input value={details.area} onChange={(e)=> setDetails({...details, area: e.target.value})} type="number" placeholder="Enter property Area" />
+                            <FormLabel>Property Description</FormLabel>
+                            <Textarea value={details.description} onChange={(e)=> setDetails({...details, description: e.target.value})} placeholder="Enter property Description" />
+                           
+                            <FormLabel htmlFor="pictures">Select Pictures:</FormLabel>
+                            <Input type="file" id="pictures" name="pictures" multiple value={details.pictures} onChange={(e)=> setDetails({ pictures: e.target.value})} accept="image/*" />
                         </FormControl>
-                        {/* Add more form fields as needed */}
+
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme="purple" mr={3}>
+                        <Button onClick={handleSaveButton} colorScheme="purple" mr={3}>
                             Save
                         </Button>
                         <Button onClick={handleCloseModal}>Cancel</Button>

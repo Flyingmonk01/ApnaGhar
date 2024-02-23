@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 const Properties = () => {
 
-
     const url = "https://dummyjson.com/products";
     const [data, setData] = useState([]);
 
@@ -17,7 +16,7 @@ const Properties = () => {
                 const response = await fetch(url);
                 const {products} = await response.json();
                 setData(products);
-                console.log(typeof products);
+                // console.log(typeof products);
             } catch (error) {
                 console.log(error);
             }
@@ -25,7 +24,7 @@ const Properties = () => {
         loadData();
     }, []);
 
-    console.log(data);
+    // console.log(data);
 
 
     return (
@@ -47,19 +46,11 @@ const Properties = () => {
 
 const Boxes = ({ source, text }) => {
     return (
-        <Box borderWidth={'1px'} borderColor={'black'} maxW={'260px'}>
-            <Box borderWidth={'1px'} borderColor={'black'}>
-                <Image borderRadius='xl' objectFit={'cover'} w={'260px'} h={'260px'} src={source} />
-            </Box>
-            <HStack mt={'4'} spacing={'6'} borderRadius={'5'} borderWidth={'1px'} borderColor={'black'} >
-                <Box ml={'3'}>
-                    {text}
-                </Box>
-                {/* <Box>Location</Box>
-                        <Text>Price</Text> */}
-
-            </HStack>
-        </Box>
+       
+        <Box boxShadow={'0 0 5px purple'} borderRadius={'md'} h={'300px'} w={'300px'} border={'2px solid #0001'}>
+        <Image p={'2'} h={'200px'} w="100%" objectFit="cover" src={source} alt={`Property`} />
+        <Text p={'4'}>{text}</Text>
+      </Box>
     )
 }
 

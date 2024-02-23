@@ -4,7 +4,6 @@ import {
     Button,
     HStack,
     Image,
-    Text,
     VStack,
     Link,
     IconButton,
@@ -13,20 +12,23 @@ import {
     DrawerContent,
     DrawerHeader,
     DrawerBody,
-    DrawerCloseButton,
+    DrawerCloseButton
 } from "@chakra-ui/react";
-import { FaBars, FaUser } from 'react-icons/fa';
+import {FaBars, FaUser } from 'react-icons/fa';
 import img from "../../assets/logo.png";
 import { Link as ReactRouterLink } from "react-router-dom";
 
 
+
+
 const Navbar = () => {
+
     const [isOpen, setIsOpen] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
 
     const handleToggle = () => setIsOpen(!isOpen);
 
-    const isAuthenticated = true;
+    const isAuthenticated = false;
 
     useEffect(() => {
         // Update the width when the window is resized
@@ -38,6 +40,10 @@ const Navbar = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const openDrawer = () => {
+        console.log('Drawer is open')
+    }
 
     return (
         <HStack w={'95vw'} justifyContent={"space-between"}>
@@ -81,8 +87,8 @@ const Navbar = () => {
                             isAuthenticated ? (
                                 <>
                                     <Link as={ReactRouterLink} to={'/people'}> People </Link>
-                                    <Link as={ReactRouterLink} to={'/user/:id'}>
-                                        <IconButton aria-label="User" _hover={{ fontSize: "lg" }}><FaUser /></IconButton> </Link>
+                                    
+                                        <IconButton aria-label="User" _hover={{ fontSize: "lg" }} onClick={openDrawer}><FaUser /></IconButton> <Link as={ReactRouterLink} to={'/user/:id'}></Link>
                                 </> // Have to add the function here
 
                             ) : (<>
@@ -117,7 +123,8 @@ const Navbar = () => {
 
                                     <>
                                         <Link onClick={handleToggle} as={ReactRouterLink} to={'/people'}> People </Link>
-                                        <Link onClick={handleToggle} as={ReactRouterLink} to={'/user/:id'}> <FaUser /> </Link>
+                                        <Link onClick={handleToggle} as={ReactRouterLink} to={'/user/:id'}></Link>
+                                        <FaUser onClick={openDrawer}/> 
                                     </>
 
                                 ) : (<>

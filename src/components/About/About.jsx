@@ -7,7 +7,7 @@ const About = () => {
 
     return (
         <Container my={'8'} minHeight={['120vh', '100vh']} minW={'70vw'} boxShadow={'0 0 10px purple'} borderRadius={'lg'}>
-            <Heading textAlign={'center'} borderBottom={'2px solid black'} m={'auto'} w={"fit-content"} children={'About Us'} />
+            <Heading textAlign={'center'} m={'auto'} w={"fit-content"} children={'About Us'} />
 
            <Stack  direction={['column', 'row']} >
            <VStack w={['100vw', '100vw']}>
