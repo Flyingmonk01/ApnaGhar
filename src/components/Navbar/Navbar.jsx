@@ -14,7 +14,7 @@ import {
     DrawerBody,
     DrawerCloseButton
 } from "@chakra-ui/react";
-import {FaBars, FaUser } from 'react-icons/fa';
+import { FaBars, FaUser } from 'react-icons/fa';
 import img from "../../assets/logo.png";
 import { Link as ReactRouterLink } from "react-router-dom";
 
@@ -25,10 +25,9 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
+    const [userAddress, setUserAddress] = useState('');
 
     const handleToggle = () => setIsOpen(!isOpen);
-
-    const isAuthenticated = false;
 
     useEffect(() => {
         // Update the width when the window is resized
@@ -44,6 +43,22 @@ const Navbar = () => {
     const openDrawer = () => {
         console.log('Drawer is open')
     }
+
+
+
+    const handleLogin = async () => {
+        try {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            const address = accounts[0];
+            setUserAddress(address);
+
+            console.log('User authenticated with address:', address);
+        } catch (error) {
+            console.error('Error connecting to MetaMask:', error.message);
+        }
+    };
+
 
     return (
         <HStack w={'95vw'} justifyContent={"space-between"}>
@@ -84,15 +99,15 @@ const Navbar = () => {
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/contact"} children={"Contact"} />
                         <Link as={ReactRouterLink} mx={['1', '2']} to={"/about"} children={"About us"} />
                         {
-                            isAuthenticated ? (
+                            userAddress ? (
                                 <>
                                     <Link as={ReactRouterLink} to={'/people'}> People </Link>
-                                    
-                                        <IconButton aria-label="User" _hover={{ fontSize: "lg" }} onClick={openDrawer}><FaUser /></IconButton> <Link as={ReactRouterLink} to={'/user/:id'}></Link>
+
+                                    <IconButton aria-label="User" _hover={{ fontSize: "lg" }} onClick={openDrawer}><FaUser /></IconButton> <Link as={ReactRouterLink} to={'/user/:id'}></Link>
                                 </> // Have to add the function here
 
                             ) : (<>
-                                <Button variant={'ghost'} colorScheme="purple">
+                                <Button variant={'ghost'} onClick={handleLogin} colorScheme="purple">
                                     <Link as={ReactRouterLink} to={'/login'}>Login</Link>
                                 </Button>
                                 <Button variant={'ghost'} colorScheme="purple">
@@ -119,12 +134,12 @@ const Navbar = () => {
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/contact"} children={"Contact"} />
                             <Link onClick={handleToggle} as={ReactRouterLink} to={"/about"} children={"About us"} />
                             {
-                                isAuthenticated ? (
+                                userAddress ? (
 
                                     <>
                                         <Link onClick={handleToggle} as={ReactRouterLink} to={'/people'}> People </Link>
                                         <Link onClick={handleToggle} as={ReactRouterLink} to={'/user/:id'}></Link>
-                                        <FaUser onClick={openDrawer}/> 
+                                        <FaUser onClick={openDrawer} />
                                     </>
 
                                 ) : (<>
